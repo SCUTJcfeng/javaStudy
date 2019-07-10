@@ -64,3 +64,9 @@ JavaBean 仅仅是一个标准, 一个类如果遵循了以下标准那它就是
 - 在容器进行关闭之前，如果该 bean 实现了 DisposableBean 接口，则调用 destroy() 方法。
 - 在容器进行关闭之前，如果该 bean 配置了 destroy-mehod，则调用其指定的方法。
 - 到这里一个 bean 也就完成了它的一生。
+
+### @Component 和 @Configuration
+
+- @Configuration 使用 CGLIB 代理, @Component 不使用, 需用@Autowire 获取对应的实例
+
+- @Configuration 中所有带 @Bean 注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。
