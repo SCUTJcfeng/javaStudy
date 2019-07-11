@@ -47,7 +47,7 @@ JavaBean 仅仅是一个标准, 一个类如果遵循了以下标准那它就是
 
 - 当我们需要引入第三方库，并且也需要把第三方库中的类实例交给 spring 管理时，则使用@Bean、@Configuration 注解。
 
-#### Spring 的生命周期
+#### @Bean 的生命周期
 
 [资料来源](http://cmsblogs.com/?p=4034)
 
@@ -65,8 +65,37 @@ JavaBean 仅仅是一个标准, 一个类如果遵循了以下标准那它就是
 - 在容器进行关闭之前，如果该 bean 配置了 destroy-mehod，则调用其指定的方法。
 - 到这里一个 bean 也就完成了它的一生。
 
-### @Component 和 @Configuration
+#### @Component 和 @Configuration
 
-- @Configuration 使用 CGLIB 代理, @Component 不使用, 需用@Autowire 获取对应的实例
+- @Configuration 使用 CGLIB 代理, @Component 不使用, 需用@Autowired 获取对应的实例
 
 - @Configuration 中所有带 @Bean 注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。
+
+#### @Resource 和 @Autowired
+
+- @Autowired 按照 ByType 装配对象
+- @Resource 指定 name 按照 ByName 装配对象(默认), 指定 type 按照 ByType 装配对象
+
+#### @Service
+
+让 spring 自动扫描管理组件，@Service  @Controller @Repository @Component ，这四个其实是一样的功能，没有区别，只是在 MVC 模式上表示的层不一样，service 一般标注在 service 层的 bean 上，controller 标注在控制层，@Repository 标注在 view 层，component 通用
+
+service 注解的类, 实现的时候用接口实现([解析链接](https://blog.csdn.net/sunsgne_AC/article/details/79269213))
+
+#### @EnableAsync 　@Async
+
+- 在启动类上增加 @EnableAsync 注解，开启异步任务
+- 在需要异步执行的方法上增加 @Async 注解，标识为一个异步任务
+
+#### @EnableScheduling @Scheduled
+
+- @EnableScheduling 注解用在配置类
+- @Scheduled 注解用于定时任务方法, 参数见[链接](https://blog.csdn.net/u014042066/article/details/77233581)
+
+#### ibatis @Mapper @Param
+
+#### jpa @EnableJpaRepositories
+
+#### jackson @JsonProperty
+
+#### JDBC 与 MyBatis
