@@ -89,8 +89,17 @@ service 注解的类, 实现的时候用接口实现([解析链接](https://blog
 
 #### @EnableScheduling @Scheduled
 
-- @EnableScheduling 注解用在配置类
+- @EnableScheduling 注解用在配置类(加@Configuration 注解)
 - @Scheduled 注解用于定时任务方法, 参数见[链接](https://blog.csdn.net/u014042066/article/details/77233581)
+
+#### 常用注解及含义
+
+| 注解        | 含义                                           |
+| ----------- | ---------------------------------------------- |
+| @Component  | 最普通的组件，可以被注入到 spring 容器进行管理 |
+| @Repository | 作用于持久层                                   |
+| @Service    | 作用于业务逻辑层                               |
+| @Controller | 作用于表现层（spring-mvc 的注解）              |
 
 #### ibatis @Mapper @Param
 
