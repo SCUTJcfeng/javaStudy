@@ -103,6 +103,8 @@ service 注解的类, 实现的时候用接口实现([解析链接](https://blog
 
 #### ibatis @Mapper @Param
 
+MyBatis 是现在最常用的持久层框架 iBatis 就是 MyBatis 前身
+
 #### jpa @EnableJpaRepositories
 
 #### jackson @JsonProperty
